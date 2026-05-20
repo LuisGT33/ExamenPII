@@ -4,7 +4,10 @@ module app {
     requires javafx.graphics;
     requires javafx.base;
 
-    opens app to javafx.fxml; // Asegúrate de incluir esto
-    exports app; // Exporta tu paquete principal
-    opens app.vista to javafx.fxml; // Exporta el paquete donde están tus controladores
+    opens app to javafx.fxml; 
+    exports app; 
+    exports app.vista;
+    exports app.modelo;
+    opens app.vista to javafx.fxml; 
+    opens app.modelo to javafx.base;
 }
