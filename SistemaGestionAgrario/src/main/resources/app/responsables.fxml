@@ -1,16 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/17"
+<BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="app.vista.ResponsablesController">
 
-    <children>
-        <Label layoutX="220.0" layoutY="180.0"
-               text="VENTANA PARCELAS"/>
-    </children>
+    <top>
 
-</AnchorPane>
+        <VBox spacing="10">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="REGISTRO DE RESPONSABLES"/>
+
+            <GridPane hgap="10" vgap="10">
+
+                <Label text="Cédula:"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtCedula"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Nombre:"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtNombre"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Teléfono:"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtTelefono"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Cargo:"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtCargo"
+                           GridPane.rowIndex="3"
+                           GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <HBox spacing="10">
+
+                <Button text="Guardar"
+                        onAction="#guardarResponsable"/>
+
+                <Button text="Eliminar"
+                        onAction="#eliminarResponsable"/>
+
+                <Button text="Limpiar"
+                        onAction="#limpiarFormulario"/>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <TableView fx:id="tablaResponsables">
+
+            <columns>
+
+                <TableColumn fx:id="colCedula" text="Cédula"/>
+                <TableColumn fx:id="colNombre" text="Nombre"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono"/>
+                <TableColumn fx:id="colCargo" text="Cargo"/>
+
+            </columns>
+
+        </TableView>
+
+    </center>
+
+</BorderPane>
