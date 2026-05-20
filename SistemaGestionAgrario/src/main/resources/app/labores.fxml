@@ -1,16 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/17"
+<BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="app.vista.LaboresController">
 
-    <children>
-        <Label layoutX="220.0" layoutY="180.0"
-               text="VENTANA PARCELAS"/>
-    </children>
+    <top>
 
-</AnchorPane>
+        <VBox spacing="10">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="REGISTRO DE LABORES"/>
+
+            <GridPane hgap="10" vgap="10">
+
+                <Label text="Código:"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtCodigo"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Descripción:"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtDescripcion"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Fecha:"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtFecha"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Responsable:"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtResponsable"
+                           GridPane.rowIndex="3"
+                           GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <HBox spacing="10">
+
+                <Button text="Guardar"
+                        onAction="#guardarLabor"/>
+
+                <Button text="Eliminar"
+                        onAction="#eliminarLabor"/>
+
+                <Button text="Limpiar"
+                        onAction="#limpiarFormulario"/>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <TableView fx:id="tablaLabores">
+
+            <columns>
+
+                <TableColumn fx:id="colCodigo"
+                             text="Código"/>
+
+                <TableColumn fx:id="colDescripcion"
+                             text="Descripción"/>
+
+                <TableColumn fx:id="colFecha"
+                             text="Fecha"/>
+
+                <TableColumn fx:id="colResponsable"
+                             text="Responsable"/>
+
+            </columns>
+
+        </TableView>
+
+    </center>
+
+</BorderPane>
